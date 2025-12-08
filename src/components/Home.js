@@ -59,14 +59,14 @@ const Home = ({ setUser }) => {
                 </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
-                        <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Tiffin" />
+                        <img src="https://assets.architecturaldigest.in/photos/6008467bb3d78db39997d8f6/master/w_1600%2Cc_limit/Indian-chefs-Farzi-Cafe_Poppadum.jpg" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Tiffin" />
                         <div className="carousel-caption d-none bg-dark bg-opacity-50 d-md-block p-3 rounded">
                             <h2>Delicious Homemade Tiffins</h2>
                             <p>Fresh, healthy and delivered to your doorstep.</p>
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Healthy" />
+                        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Healthy" />
                         <div className="carousel-caption d-none bg-dark bg-opacity-50 d-md-block p-3 rounded">
                             <h2>Healthy Choices</h2>
                             <p>Pick from our vegetarian and vegan options.</p>
