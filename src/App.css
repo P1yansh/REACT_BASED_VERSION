@@ -43,3 +43,67 @@ body {
   font-weight: 600;
   margin: 0 5px;
 }
+
+.user-count-slide {
+  background-image: url("https://images.unsplash.com/photo-1506784983877-45594efa4cbe");
+  background-size: cover;
+  background-position: center;
+  height: 500px;
+  position: relative;
+}
+
+.user-count-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.user-count-content {
+  position: relative;
+  color: #fff;
+}
+
+.user-count-title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.user-count-subtitle {
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.offers-slide {
+    height: 500px;
+    background: url('https://images.unsplash.com/photo-1525755662778-989d0524087e')
+        center/cover no-repeat;
+    position: relative;
+}
+
+.offers-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+}
+
+.offers-content {
+    position: relative;
+    z-index: 10;
+    color: white;
+    padding: 0 20px;
+}
+
+.offers-title {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.offers-subtitle {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -48,7 +48,15 @@ const Home = ({ setUser }) => {
                 </div>
             )}
 
-            <div id="homeCarousel" className="carousel slide" data-bs-ride="carousel">
+            <div id="homeCarousel" className="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+                <div className="carousel-indicators">
+                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" className="active"></button>
+                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="3"></button>
+                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="4"></button>
+                    <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="5"></button>
+                </div>
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <img src="https://images.unsplash.com/photo-1555939594-58d7cb561ad1" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Tiffin" />
@@ -62,6 +70,40 @@ const Home = ({ setUser }) => {
                         <div className="carousel-caption d-none bg-dark bg-opacity-50 d-md-block p-3 rounded">
                             <h2>Healthy Choices</h2>
                             <p>Pick from our vegetarian and vegan options.</p>
+                        </div>
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Tiffin Box" />
+                        <div className="carousel-caption d-none bg-dark bg-opacity-50 d-md-block p-3 rounded">
+                            <h2>Freshly Packed Tiffins</h2>
+                            <p>Perfect for your busy morning schedule.</p> 
+                        </div>
+                    </div>
+                    <div className="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0" className="d-block w-100" style={{ height: "80vh", objectFit: "cover" }} alt="Healthy Food" />
+                        <div className="carousel-caption d-none bg-dark bg-opacity-50 d-md-block p-3 rounded">
+                            <h2>Balanced Meals</h2>
+                            <p>Nutritious and tasty options for everyone.</p>
+                        </div>
+                    </div>
+                     <div className="carousel-item">
+                        <div className="user-count-slide d-flex justify-content-center align-items-center">
+                            <div className="user-count-overlay"></div>
+                            <div className="user-count-content text-center">
+                                <h1 className="user-count-title">500+ Happy Users</h1>
+                                <p className="user-count-subtitle">Growing every day — trusted across the city!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="carousel-item">
+                        <div className="offers-slide d-flex justify-content-center align-items-center">
+                            <div className="offers-overlay"></div>
+                            <div className="offers-content text-center">
+                                <h1 className="offers-title">Special Offers Just for You!</h1>
+                                <p className="offers-subtitle">
+                                    Get <strong>10% OFF</strong> on monthly subscriptions • Free delivery for first-time users • Combo meals at discounted prices
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
