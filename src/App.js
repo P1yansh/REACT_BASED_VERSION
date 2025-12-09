@@ -10,6 +10,8 @@ import Home from './components/Home';
 import Menu from './components/Menu';
 import Dashboard from './components/Dashboard';
 import Checkout from './components/Checkout';
+import CustomerReviews from './components/CustomerReviews';
+
 
 function App() {
   const [user, setUser] = useState({
@@ -38,6 +40,9 @@ function App() {
           <Route path="/dashboard" element={<Dashboard user={user} />} />
 
           <Route path="/checkout" element={<Checkout user={user} />} />
+
+          <Route path="/reviews" element={<CustomerReviews />} />
+
         </Routes>
       </div>
 

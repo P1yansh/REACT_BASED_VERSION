@@ -16,6 +16,8 @@ const Navbar = () => {
                         <li className="nav-item"><NavLink className="nav-link" to="/">Home</NavLink></li>
                         <li className="nav-item"><NavLink className="nav-link" to="/menu">Weekly Menu</NavLink></li>
                         <li className="nav-item"><NavLink className="nav-link" to="/dashboard">Dashboard</NavLink></li>
+                         <li className="nav-item"><NavLink className="nav-link" to="/reviews">Reviews</NavLink>
+  </li>
                         <li className="nav-item"><NavLink className="nav-link btn btn-warning text-dark ms-2 fw-bold" to="/checkout">Subscribe</NavLink></li>
                     </ul>
                 </div>
