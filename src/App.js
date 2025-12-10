@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Calories from './components/Calories';
 
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -33,6 +34,8 @@ function App() {
 
       <div className="main-content">
         <Routes>
+          <Route path="/calories" element={<Calories />} />
+
           <Route path="/" element={<Home setUser={setUser} />} />
 
           <Route path="/menu" element={<Menu />} />
@@ -59,5 +62,6 @@ function App() {
     </Router>
   );
 }
+
 
 export default App;

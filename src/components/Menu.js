@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
+  const navigate = useNavigate();
   const [CurrentDay, setCurrentDay] = useState('Monday');
   const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
@@ -55,6 +57,11 @@ const Menu = () => {
             </div>
           </div>
         </div>
+        <div className="text-center mt-4">
+      <button className="btn btn-warning rounded-pill px-4" onClick={() => navigate("/calories")} >
+        🔥 View Calories
+      </button>
+    </div>
       </div>
     </div>
   );
