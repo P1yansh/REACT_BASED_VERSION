@@ -1,6 +1,4 @@
-// import React, { useEffect, useState } from "react"
-// ;
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 function CustomerReviews() {
   const [name, setName] = useState("");

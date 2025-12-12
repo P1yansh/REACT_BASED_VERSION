@@ -1,26 +1,10 @@
-import { NavLink } from "react-router-dom";
-
 const Footer = () => {
     return (
         <footer className="bg-dark text-white text-center py-4 mt-auto">
             <div className="container">
 
                 <p className="mb-2">© 2025 UrbanBite | Fresh Food, Fast Delivery</p>
-                <p className="mb-2">
-          <NavLink 
-            to="/about" 
-            className="text-white fw-semibold text-decoration-none me-3"
-          >
-            About Us
-          </NavLink>
-          |
-          <NavLink 
-            to="/contact" 
-            className="text-white fw-semibold text-decoration-none ms-3"
-          >
-            Contact Us
-          </NavLink>
-        </p>
+
                 <div className="d-flex justify-content-center gap-3 mb-2">
 
                     <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-white">
@@ -50,4 +34,3 @@ const Footer = () => {
 };
 
 export default Footer;
-
