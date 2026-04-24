@@ -23,7 +23,7 @@ app.use(express.json()); // Parse incoming JSON request bodies
 // Health Check
 // ─────────────────────────────────────────────
 app.get('/', (req, res) => {
-  res.json({ message: '🍔 UrbanBite API is running!', database: 'real MySQL' });
+  res.json({ message: 'UrbanBite API is running!', database: 'real MySQL' });
 });
 
 // ─────────────────────────────────────────────
@@ -169,5 +169,5 @@ app.use((err, req, res, next) => {
 // Start Server
 // ─────────────────────────────────────────────
 app.listen(PORT, () => {
-  console.log(`🚀 UrbanBite backend running at http://localhost:${PORT}`);
+  console.log(`UrbanBite backend running at http://localhost:${PORT}`);
 });

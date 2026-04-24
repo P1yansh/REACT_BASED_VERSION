@@ -17,11 +17,11 @@ const pool = mysql.createPool({
 // Test the connection on startup (non-fatal — server keeps running even if DB is down)
 pool.getConnection()
   .then((connection) => {
-    console.log('✅ MySQL connected successfully (pool initialized with real DB)');
+    console.log('MySQL connected successfully (pool initialized with real DB)');
     connection.release();
   })
   .catch((err) => {
-    console.error('⚠️  MySQL not reachable:', err.message);
+    console.error('MySQL not reachable:', err.message);
     console.error('   → Start MySQL service and the pool will auto-reconnect on next request.');
   });
 

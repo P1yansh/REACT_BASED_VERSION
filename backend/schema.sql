@@ -51,10 +51,10 @@ CREATE TABLE IF NOT EXISTS orders (
 -- ─────────────────────────────────
 -- Sample Seed Data
 -- ─────────────────────────────────
-INSERT INTO restaurants (name, cuisine, address, rating) VALUES
-  ('The Burger Joint',  'American', '12 Main Street, Mumbai',    4.5),
-  ('Spice Garden',      'Indian',   '34 Park Avenue, Delhi',     4.2),
-  ('Pasta Paradise',    'Italian',  '56 Lake Road, Bangalore',   4.7);
+INSERT INTO restaurants (name, cuisine, address, rating, image_url) VALUES
+  ('The Burger Joint',  'American', '12 Main Street, Mumbai',    4.5, 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=400'),
+  ('Spice Garden',      'Indian',   '34 Park Avenue, Delhi',     4.2, 'https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=400'),
+  ('Pasta Paradise',    'Italian',  '56 Lake Road, Bangalore',   4.7, 'https://images.unsplash.com/photo-1555949258-eb67b1ef0ceb?w=400');
 
 INSERT INTO menu (restaurant_id, name, description, price, category) VALUES
   (1, 'Classic Burger',       'Juicy beef patty with lettuce, tomato, cheese', 199.00, 'Burgers'),
