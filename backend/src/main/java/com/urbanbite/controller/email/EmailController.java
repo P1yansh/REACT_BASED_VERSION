@@ -24,7 +24,7 @@ public class EmailController {
             return ResponseEntity.badRequest().body(new ApiResponse(false, "Recipient 'to' email is required"));
         }
 
-        String subject = "Test Email from UrbanBite 🍽️";
+        String subject = "Test Email from UrbanBite";
         String body = "Hi there,\n\nThis is a test email to verify the email configuration.\n\nThank you!";
         
         emailService.sendSimpleEmail(to, subject, body);

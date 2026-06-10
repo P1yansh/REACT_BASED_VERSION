@@ -11,9 +11,7 @@ import com.urbanbite.service.email.EmailService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-/**
- * Service handling user registration, login, and profile retrieval.
- */
+
 @Service
 public class AuthService {
 
@@ -32,16 +30,14 @@ public class AuthService {
         this.emailService = emailService;
     }
 
-    /**
-     * Register a new user (subscriber) and return JWT + user info.
-     */
+    
     public AuthResponse register(RegisterRequest request) {
-        // Check if email already exists
+        
         if (userRepository.existsByEmail(request.getEmail())) {
             throw new RuntimeException("Email already registered. Please login instead.");
         }
 
-        // Create and save user
+        
         User user = User.builder()
                 .name(request.getName())
                 .email(request.getEmail())
@@ -54,23 +50,21 @@ public class AuthService {
 
         user = userRepository.save(user);
 
-        // Send Welcome Email
-        String subject = "Welcome to UrbanBite! 🍽️";
+        
+        String subject = "Welcome to UrbanBite! ";
         String body = "Hi " + user.getName() + ",\n\n" +
                 "Welcome to UrbanBite! We are excited to have you on board.\n" +
                 "You have selected the " + user.getPlan() + " plan. Get ready to enjoy chef-crafted, macro-balanced meals.\n\n" +
                 "Thank you!";
         emailService.sendSimpleEmail(user.getEmail(), subject, body);
 
-        // Generate JWT
+        
         String token = jwtUtil.generateToken(user.getEmail());
 
         return buildAuthResponse(user, token);
     }
 
-    /**
-     * Authenticate user with email/password and return JWT.
-     */
+    
     public AuthResponse login(LoginRequest request) {
         User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new RuntimeException("Invalid email or password"));
@@ -84,9 +78,7 @@ public class AuthService {
         return buildAuthResponse(user, token);
     }
 
-    /**
-     * Get user profile by email (used by authenticated endpoints).
-     */
+    
     public AuthResponse getProfile(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -94,9 +86,7 @@ public class AuthService {
         return buildAuthResponse(user, null);
     }
 
-    /**
-     * Build the AuthResponse DTO from a User entity.
-     */
+    
     private AuthResponse buildAuthResponse(User user, String token) {
         return AuthResponse.builder()
                 .token(token)

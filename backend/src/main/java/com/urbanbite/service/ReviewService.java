@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Service for managing customer reviews.
- */
+
 @Service
 public class ReviewService {
 
@@ -19,16 +17,12 @@ public class ReviewService {
         this.reviewRepository = reviewRepository;
     }
 
-    /**
-     * Get all reviews ordered by newest first.
-     */
+    
     public List<Review> getAllReviews() {
         return reviewRepository.findAllByOrderByCreatedAtDesc();
     }
 
-    /**
-     * Submit a new review.
-     */
+    
     public Review createReview(ReviewRequest request) {
         Review review = Review.builder()
                 .name(request.getName())

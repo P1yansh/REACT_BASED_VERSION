@@ -3,9 +3,7 @@ package com.urbanbite.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-/**
- * CalorieInfo entity — stores calorie & health info for menu items.
- */
+
 @Entity
 @Table(name = "calorie_info")
 @Data
@@ -24,7 +22,7 @@ public class CalorieInfo {
     @Column(nullable = false)
     private Integer calories;
 
-    /** Comma-separated list: "Diabetes, Weight Loss" */
+    
     @Column(name = "recommended_for", length = 500)
     private String recommendedFor;
 }

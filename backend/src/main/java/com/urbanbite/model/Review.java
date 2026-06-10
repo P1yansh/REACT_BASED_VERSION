@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
-/**
- * Review entity — stores customer reviews/testimonials.
- */
+
 @Entity
 @Table(name = "reviews")
 @Data
@@ -28,7 +26,7 @@ public class Review {
     @Column(columnDefinition = "TEXT")
     private String comment;
 
-    /** Optional link to the user who submitted the review */
+    
     @Column(name = "user_id")
     private Long userId;
 

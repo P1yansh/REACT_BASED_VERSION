@@ -5,10 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-/**
- * DTO returned after successful authentication.
- * Contains JWT token and basic user info.
- */
+
 @Data
 @Builder
 @NoArgsConstructor

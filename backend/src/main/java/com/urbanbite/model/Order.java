@@ -5,9 +5,7 @@ import lombok.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * Order entity — stores subscription orders placed by users.
- */
+
 @Entity
 @Table(name = "orders")
 @Data

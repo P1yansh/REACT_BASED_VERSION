@@ -14,9 +14,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-/**
- * Service for managing subscription orders.
- */
+
 @Service
 public class OrderService {
 
@@ -35,10 +33,7 @@ public class OrderService {
         this.emailService = emailService;
     }
 
-    /**
-     * Create a new order for the authenticated user.
-     * Calculates price based on plan type with a fixed ₹50 promo discount.
-     */
+    
     public Order createOrder(String email, OrderRequest request) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -59,7 +54,7 @@ public class OrderService {
 
         order = orderRepository.save(order);
 
-        // Calculate Expiry Date
+        
         LocalDate startDate = LocalDate.now();
         LocalDate expiryDate = startDate;
         switch (request.getPlan()) {
@@ -68,7 +63,7 @@ public class OrderService {
             case "Monthly" -> expiryDate = startDate.plusDays(30);
         }
 
-        // Create or Update FoodPlan
+        
         FoodPlan foodPlan = foodPlanRepository.findByUserIdAndIsActiveTrue(user.getId())
                 .orElse(FoodPlan.builder()
                         .user(user)
@@ -80,8 +75,8 @@ public class OrderService {
         foodPlan.setActive(true);
         foodPlanRepository.save(foodPlan);
 
-        // Send Order Confirmation Email
-        String subject = "Order Confirmation - UrbanBite 🍽️";
+        
+        String subject = "Order Confirmation - UrbanBite ";
         String body = "Hi " + user.getName() + ",\n\n" +
                 "Thank you for your order!\n" +
                 "Plan: " + request.getPlan() + "\n" +
@@ -93,9 +88,7 @@ public class OrderService {
         return order;
     }
 
-    /**
-     * Get order history for the authenticated user.
-     */
+    
     public List<Order> getUserOrders(String email) {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -103,9 +96,7 @@ public class OrderService {
         return orderRepository.findByUserIdOrderByCreatedAtDesc(user.getId());
     }
 
-    /**
-     * Price lookup matching the frontend Checkout component logic.
-     */
+    
     private BigDecimal getPrice(String plan) {
         return switch (plan) {
             case "Daily" -> new BigDecimal("120");

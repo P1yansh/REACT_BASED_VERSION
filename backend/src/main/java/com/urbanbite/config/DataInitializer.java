@@ -11,10 +11,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-/**
- * Seeds the database with initial menu items, calorie data, and a default admin user
- * on first application startup (only if tables are empty).
- */
+
 @Component
 public class DataInitializer implements CommandLineRunner {
 
@@ -40,42 +37,38 @@ public class DataInitializer implements CommandLineRunner {
         seedAdminUser();
     }
 
-    /**
-     * Seed weekly menu data matching the original frontend hardcoded values.
-     */
+    
     private void seedMenuItems() {
         if (menuItemRepo.count() > 0) return;
 
-        // Monday
+        
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Monday").mealType("LUNCH").description("Rajma Chawal + Jeera Aloo").build());
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Monday").mealType("DINNER").description("Mix Veg + 4 Rotis + Dal Fry").build());
 
-        // Tuesday
+        
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Tuesday").mealType("LUNCH").description("Kadi Pakoda + Rice").build());
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Tuesday").mealType("DINNER").description("Paneer Butter Masala + Naan").build());
 
-        // Wednesday
+        
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Wednesday").mealType("LUNCH").description("Chole Kulche").build());
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Wednesday").mealType("DINNER").description("Egg Curry / Malai Kofta + Rice").build());
 
-        // Thursday
+        
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Thursday").mealType("LUNCH").description("Aloo Paratha + Curd + Pickle").build());
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Thursday").mealType("DINNER").description("Dal Makhani + Jeera Rice + Salad").build());
 
-        // Friday
+        
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Friday").mealType("LUNCH").description("Pav Bhaji").build());
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Friday").mealType("DINNER").description("Butter Chicken / Shahi Paneer + Naan").build());
 
-        // Saturday
+        
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Saturday").mealType("LUNCH").description("Biryani + Raita").build());
         menuItemRepo.save(MenuItem.builder().dayOfWeek("Saturday").mealType("DINNER").description("Tandoori Roti + Mix Dal + Aloo Gobi").build());
 
-        System.out.println("✅ Menu items seeded successfully.");
+        System.out.println(" Menu items seeded successfully.");
     }
 
-    /**
-     * Seed calorie data matching the original frontend hardcoded values.
-     */
+    
     private void seedCalorieInfo() {
         if (calorieInfoRepo.count() > 0) return;
 
@@ -90,13 +83,10 @@ public class DataInitializer implements CommandLineRunner {
         calorieInfoRepo.save(CalorieInfo.builder().itemName("Pav Bhaji").calories(380).recommendedFor("Energy Boost").build());
         calorieInfoRepo.save(CalorieInfo.builder().itemName("Dal Makhani").calories(350).recommendedFor("High Protein Diet").build());
 
-        System.out.println("✅ Calorie info seeded successfully.");
+        System.out.println(" Calorie info seeded successfully.");
     }
 
-    /**
-     * Create a default admin user if no admin exists.
-     * Login: admin@urbanbite.com / admin123
-     */
+    
     private void seedAdminUser() {
         if (userRepo.existsByEmail("admin@urbanbite.com")) return;
 
@@ -111,6 +101,6 @@ public class DataInitializer implements CommandLineRunner {
                 .build();
 
         userRepo.save(admin);
-        System.out.println("✅ Default admin user created (admin@urbanbite.com / admin123)");
+        System.out.println(" Default admin user created (admin@urbanbite.com / admin123)");
     }
 }

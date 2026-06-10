@@ -3,9 +3,7 @@ package com.urbanbite.dto;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-/**
- * DTO for placing a subscription order from checkout.
- */
+
 @Data
 public class OrderRequest {
 

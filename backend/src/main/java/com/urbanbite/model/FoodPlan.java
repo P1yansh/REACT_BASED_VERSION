@@ -5,9 +5,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-/**
- * Entity to track the active subscription plan for a user.
- */
+
 @Entity
 @Table(name = "food_plans")
 @Data
@@ -25,7 +23,7 @@ public class FoodPlan {
     private User user;
 
     @Column(nullable = false, length = 20)
-    private String plan; // Daily, Weekly, Monthly
+    private String plan; 
 
     @Column(name = "start_date", nullable = false)
     private LocalDate startDate;

@@ -5,9 +5,7 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
-/**
- * DTO for submitting a customer review.
- */
+
 @Data
 public class ReviewRequest {
 

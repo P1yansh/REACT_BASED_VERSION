@@ -6,9 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * Repository for Review entity.
- */
+
 @Repository
 public interface ReviewRepository extends JpaRepository<Review, Long> {
 

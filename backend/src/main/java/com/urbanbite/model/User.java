@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDateTime;
 
-/**
- * User entity — stores registered UrbanBite subscribers.
- */
+
 @Entity
 @Table(name = "users")
 @Data
@@ -31,11 +29,11 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    /** Subscription plan: Daily, Weekly, or Monthly */
+    
     @Column(length = 20)
     private String plan;
 
-    /** Food preference: Veg, Non-Veg, or Both */
+    
     @Column(name = "food_type", length = 20)
     private String foodType;
 

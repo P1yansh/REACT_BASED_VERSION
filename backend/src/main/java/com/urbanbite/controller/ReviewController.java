@@ -11,10 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * REST controller for customer reviews.
- * GET is public, POST is public (guests can leave reviews).
- */
+
 @RestController
 @RequestMapping("/api/reviews")
 public class ReviewController {
@@ -25,17 +22,13 @@ public class ReviewController {
         this.reviewService = reviewService;
     }
 
-    /**
-     * GET /api/reviews — Get all reviews (newest first).
-     */
+    
     @GetMapping
     public ResponseEntity<List<Review>> getAllReviews() {
         return ResponseEntity.ok(reviewService.getAllReviews());
     }
 
-    /**
-     * POST /api/reviews — Submit a new review.
-     */
+    
     @PostMapping
     public ResponseEntity<?> createReview(@Valid @RequestBody ReviewRequest request) {
         try {

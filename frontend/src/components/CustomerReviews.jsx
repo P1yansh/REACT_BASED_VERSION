@@ -9,7 +9,7 @@ const CustomerReviews = () => {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
 
-  // Load reviews from backend API
+  
   useEffect(() => {
     getReviews()
       .then((data) => {
@@ -17,7 +17,7 @@ const CustomerReviews = () => {
         setLoading(false);
       })
       .catch(() => {
-        // Fallback to localStorage if API fails
+        
         const saved = JSON.parse(localStorage.getItem("reviews")) || [];
         setReviews(saved);
         setLoading(false);
@@ -103,7 +103,7 @@ const CustomerReviews = () => {
           ) : (
             reviews.map((r) => (
               <div key={r.id || r.name + r.comment} className="card mb-2 p-3 shadow-sm bg-dark text-light border-secondary">
-                <h5>{r.name} — <span style={{color: '#ffc107'}}>{"★".repeat(r.rating)}</span></h5>
+                <h5>{r.name} — <span style={{color: '#ffc107'}}>{"".repeat(r.rating)}</span></h5>
                 <p className="mb-0">{r.comment}</p>
               </div>
             ))

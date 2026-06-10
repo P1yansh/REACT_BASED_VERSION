@@ -20,17 +20,12 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
-    /**
-     * Sends a simple text email.
-     */
     public void sendSimpleEmail(String to, String subject, String body) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
             message.setTo(to);
             message.setSubject(subject);
             message.setText(body);
-            // Sender is picked from properties automatically, or you can specify:
-            // message.setFrom("urbanbite@example.com");
 
             mailSender.send(message);
             logger.info("Successfully sent simple email to {}", to);
@@ -39,9 +34,6 @@ public class EmailService {
         }
     }
 
-    /**
-     * Sends an HTML formatted email.
-     */
     public void sendHtmlEmail(String to, String subject, String htmlContent) {
         try {
             MimeMessage message = mailSender.createMimeMessage();

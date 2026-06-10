@@ -9,9 +9,7 @@ import javax.crypto.SecretKey;
 import java.nio.charset.StandardCharsets;
 import java.util.Date;
 
-/**
- * Utility class for JWT token generation, validation, and parsing.
- */
+
 @Component
 public class JwtUtil {
 
@@ -26,9 +24,7 @@ public class JwtUtil {
         this.expirationMs = expirationMs;
     }
 
-    /**
-     * Generate a JWT token for the given email.
-     */
+    
     public String generateToken(String email) {
         Date now = new Date();
         Date expiry = new Date(now.getTime() + expirationMs);
@@ -41,9 +37,7 @@ public class JwtUtil {
                 .compact();
     }
 
-    /**
-     * Extract the email (subject) from a JWT token.
-     */
+    
     public String getEmailFromToken(String token) {
         return Jwts.parser()
                 .verifyWith(key)
@@ -53,9 +47,7 @@ public class JwtUtil {
                 .getSubject();
     }
 
-    /**
-     * Validate the given JWT token.
-     */
+    
     public boolean validateToken(String token) {
         try {
             Jwts.parser()

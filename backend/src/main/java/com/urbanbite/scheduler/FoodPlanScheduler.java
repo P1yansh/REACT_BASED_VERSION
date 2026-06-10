@@ -29,11 +29,6 @@ public class FoodPlanScheduler {
         this.emailService = emailService;
     }
 
-    /**
-     * Runs daily at 9 AM.
-     * Finds plans expiring in 1 day and sends a reminder.
-     * Finds expired plans, notifies users, and marks them inactive.
-     */
     @Scheduled(cron = "0 0 9 * * ?")
     public void checkExpiringPlans() {
         logger.info("Running FoodPlanScheduler (9 AM) - Plan Expiry Check...");
@@ -41,19 +36,17 @@ public class FoodPlanScheduler {
         LocalDate today = LocalDate.now();
         LocalDate tomorrow = today.plusDays(1);
 
-        // Notify for plans expiring tomorrow
         List<FoodPlan> expiringPlans = foodPlanRepository.findByExpiryDateAndIsActiveTrueAndExpiryReminderSentFalse(tomorrow);
         int expiryNotified = 0;
         for (FoodPlan plan : expiringPlans) {
             User user = plan.getUser();
-            String subject = "Food Plan Expiring Soon 🍽️";
+            String subject = "Food Plan Expiring Soon";
             String body = "Hi " + user.getName() + ",\n\n" +
                     "Your " + plan.getPlan() + " food plan will expire tomorrow (" + tomorrow + ").\n" +
                     "Renew now to continue enjoying our meals.\n\n" +
                     "Thank you!";
             emailService.sendSimpleEmail(user.getEmail(), subject, body);
             
-            // Mark reminder as sent to prevent duplicates
             plan.setExpiryReminderSent(true);
             foodPlanRepository.save(plan);
             
@@ -61,19 +54,17 @@ public class FoodPlanScheduler {
             logger.info("Sent expiry reminder to {}", user.getEmail());
         }
 
-        // Notify for expired plans (expiry date is before today)
         List<FoodPlan> expiredPlans = foodPlanRepository.findByExpiryDateBeforeAndIsActiveTrue(today);
         int expiredNotified = 0;
         for (FoodPlan plan : expiredPlans) {
             User user = plan.getUser();
-            String subject = "Your Food Plan has Expired ⚠️";
+            String subject = "Your Food Plan has Expired";
             String body = "Hi " + user.getName() + ",\n\n" +
                     "Your " + plan.getPlan() + " food plan has expired on " + plan.getExpiryDate() + ".\n" +
                     "Please renew your subscription to resume your meal deliveries.\n\n" +
                     "Thank you!";
             emailService.sendSimpleEmail(user.getEmail(), subject, body);
             
-            // Mark as inactive
             plan.setActive(false);
             foodPlanRepository.save(plan);
             
@@ -84,10 +75,6 @@ public class FoodPlanScheduler {
         logger.info("Finished FoodPlanScheduler. Users notified (expiring): {}, Users notified (expired): {}", expiryNotified, expiredNotified);
     }
 
-    /**
-     * Runs daily at 8 AM.
-     * Finds meals scheduled for the current day and sends a reminder.
-     */
     @Scheduled(cron = "0 0 8 * * ?")
     public void checkDailyMeals() {
         logger.info("Running FoodPlanScheduler (8 AM) - Daily Meal Reminder...");
@@ -98,7 +85,7 @@ public class FoodPlanScheduler {
         int mealNotified = 0;
         for (Meal meal : mealsToday) {
             User user = meal.getUser();
-            String subject = "Today's Meal Reminder 🍱";
+            String subject = "Today's Meal Reminder";
             String body = "Hi " + user.getName() + ",\n\n" +
                     "You have meals scheduled for today (" + today + ").\n" +
                     (meal.getMealType() != null ? "Meal Type: " + meal.getMealType() + "\n" : "") +
@@ -106,7 +93,6 @@ public class FoodPlanScheduler {
                     "Thank you!";
             emailService.sendSimpleEmail(user.getEmail(), subject, body);
 
-            // Mark reminder as sent
             meal.setReminderSent(true);
             mealRepository.save(meal);
 

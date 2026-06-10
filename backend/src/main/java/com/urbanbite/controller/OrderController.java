@@ -12,10 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * REST controller for subscription orders.
- * All endpoints require authentication.
- */
+
 @RestController
 @RequestMapping("/api/orders")
 public class OrderController {
@@ -26,9 +23,7 @@ public class OrderController {
         this.orderService = orderService;
     }
 
-    /**
-     * POST /api/orders — Place a new subscription order.
-     */
+    
     @PostMapping
     public ResponseEntity<?> createOrder(@Valid @RequestBody OrderRequest request,
                                          Authentication authentication) {
@@ -41,9 +36,7 @@ public class OrderController {
         }
     }
 
-    /**
-     * GET /api/orders — Get current user's order history.
-     */
+    
     @GetMapping
     public ResponseEntity<List<Order>> getUserOrders(Authentication authentication) {
         return ResponseEntity.ok(orderService.getUserOrders(authentication.getName()));

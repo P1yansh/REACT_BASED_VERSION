@@ -5,10 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
-/**
- * DTO for user registration (subscription) requests.
- * Maps to the "Join UrbanBite" form on the Home page.
- */
+
 @Data
 public class RegisterRequest {
 
@@ -25,10 +22,10 @@ public class RegisterRequest {
     @Size(min = 6, message = "Password must be at least 6 characters")
     private String password;
 
-    /** Subscription plan: Daily, Weekly, Monthly */
+    
     @NotBlank(message = "Plan is required")
     private String plan;
 
-    /** Food preference: Veg, Non-Veg, Both */
+    
     private String foodType;
 }

@@ -8,9 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
-/**
- * REST controller for authentication — register, login, and profile.
- */
+
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
@@ -21,10 +19,7 @@ public class AuthController {
         this.authService = authService;
     }
 
-    /**
-     * POST /api/auth/register — Register a new subscriber.
-     * Called from the "Join UrbanBite" form on the Home page.
-     */
+    
     @PostMapping("/register")
     public ResponseEntity<?> register(@Valid @RequestBody RegisterRequest request) {
         try {
@@ -36,9 +31,7 @@ public class AuthController {
         }
     }
 
-    /**
-     * POST /api/auth/login — Authenticate user and return JWT.
-     */
+    
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
         try {
@@ -50,9 +43,7 @@ public class AuthController {
         }
     }
 
-    /**
-     * GET /api/auth/me — Get current authenticated user's profile.
-     */
+    
     @GetMapping("/me")
     public ResponseEntity<?> getCurrentUser(Authentication authentication) {
         try {

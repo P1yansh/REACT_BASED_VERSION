@@ -7,9 +7,7 @@ import org.springframework.stereotype.Service;
 import java.util.*;
 import java.util.stream.Collectors;
 
-/**
- * Service for managing calorie/nutrition information.
- */
+
 @Service
 public class CalorieService {
 
@@ -19,10 +17,7 @@ public class CalorieService {
         this.calorieInfoRepository = calorieInfoRepository;
     }
 
-    /**
-     * Get all calorie info, formatted for the frontend.
-     * Returns a map: { "itemName": { "calories": 350, "recommendedFor": ["Diabetes", ...] } }
-     */
+    
     public Map<String, Map<String, Object>> getAllCalorieInfo() {
         List<CalorieInfo> items = calorieInfoRepository.findAll();
 
@@ -31,7 +26,7 @@ public class CalorieService {
             Map<String, Object> info = new HashMap<>();
             info.put("calories", item.getCalories());
 
-            // Convert comma-separated string to list
+            
             List<String> recommendations = item.getRecommendedFor() != null
                     ? Arrays.stream(item.getRecommendedFor().split(","))
                             .map(String::trim)

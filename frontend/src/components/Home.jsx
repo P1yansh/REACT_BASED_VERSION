@@ -134,9 +134,9 @@ const Home = () => {
                     <h2 className="ub-join-title">Join The<br />Club.</h2>
                     <p className="ub-join-text">Access exclusive weekly menus and track your nutrition.</p>
                     <ul className="ub-benefit-list" aria-label="Membership benefits">
-                        <li><span>✓</span>Exclusive weekly menus</li>
-                        <li><span>✓</span>Nutrition tracking dashboard</li>
-                        <li><span>✓</span>Priority delivery slots</li>
+                        <li><span></span>Exclusive weekly menus</li>
+                        <li><span></span>Nutrition tracking dashboard</li>
+                        <li><span></span>Priority delivery slots</li>
                     </ul>
                     <div className="ub-join-badge">
                         <div className="ub-join-number">500+</div>

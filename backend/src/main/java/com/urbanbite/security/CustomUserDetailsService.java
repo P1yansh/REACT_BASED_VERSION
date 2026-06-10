@@ -8,9 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 
-/**
- * Loads user details from the database for Spring Security authentication.
- */
+
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
 

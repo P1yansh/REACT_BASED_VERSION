@@ -5,9 +5,7 @@ import lombok.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-/**
- * Entity to track scheduled daily meals for a user.
- */
+
 @Entity
 @Table(name = "meals")
 @Data
@@ -28,7 +26,7 @@ public class Meal {
     private LocalDate scheduledDate;
 
     @Column(name = "meal_type", length = 50)
-    private String mealType; // E.g., Lunch, Dinner
+    private String mealType; 
 
     @Column(name = "reminder_sent", nullable = false)
     @Builder.Default

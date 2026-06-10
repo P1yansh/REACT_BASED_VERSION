@@ -1,10 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { loginUser, registerUser, getProfile } from '../services/api';
 
-/**
- * Auth context — provides user state, login, register, logout
- * to the entire component tree.
- */
+
 const AuthContext = createContext(null);
 
 export const useAuth = () => {
@@ -18,7 +15,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem('urbanbite_token'));
   const [loading, setLoading] = useState(true);
 
-  // On mount, if token exists, fetch user profile
+  
   useEffect(() => {
     if (token) {
       getProfile()
@@ -27,7 +24,7 @@ export const AuthProvider = ({ children }) => {
           setLoading(false);
         })
         .catch(() => {
-          // Token expired or invalid — clear
+          
           localStorage.removeItem('urbanbite_token');
           localStorage.removeItem('urbanbite_user');
           setToken(null);
@@ -39,9 +36,7 @@ export const AuthProvider = ({ children }) => {
     }
   }, [token]);
 
-  /**
-   * Login with email/password, store JWT.
-   */
+  
   const login = async (email, password) => {
     const data = await loginUser(email, password);
     localStorage.setItem('urbanbite_token', data.token);
@@ -51,9 +46,7 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
-  /**
-   * Register (subscribe) a new user, auto-login after success.
-   */
+  
   const register = async (formData) => {
     const data = await registerUser(formData);
     localStorage.setItem('urbanbite_token', data.token);
@@ -63,9 +56,7 @@ export const AuthProvider = ({ children }) => {
     return data;
   };
 
-  /**
-   * Logout — clear token and user state.
-   */
+  
   const logout = () => {
     localStorage.removeItem('urbanbite_token');
     localStorage.removeItem('urbanbite_user');

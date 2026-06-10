@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getCalories } from "../services/api";
 
-// Fallback data matching original frontend (used if API fails)
+
 const fallbackCaloriesData = {
   "Rajma Chawal": { calories: 350, recommendedFor: ["Diabetes", "High Protein Diet"] },
   "Jeera Aloo": { calories: 180, recommendedFor: ["Weight Gain"] },
